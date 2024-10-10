@@ -1,0 +1,1 @@
+// https://stackoverflow.com/questions/58684642/should-i-call-dotenv-in-every-node-js-file
