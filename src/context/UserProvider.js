@@ -12,9 +12,8 @@ export default function UserProvider({children}) {
     const json = JSON.stringify(user)
     const headers = {headers: {'Content-Type':'application/json'}}
     try {
-      const response = await axios.post(url + '/user/register',json,headers)
-      setUser(response.data)
-      sessionStorage.setItem("user",JSON.stringify(response.data))
+      await axios.post(url + '/user/register',json,headers)      
+      setUser({email: '',password: ''})
     } catch(error) {
       throw error
     }
@@ -29,6 +28,7 @@ export default function UserProvider({children}) {
       setUser(response.data)
       sessionStorage.setItem("user",JSON.stringify(response.data))
     } catch(error) {
+      setUser({email: '',password: ''})
       throw error
     }
   }
